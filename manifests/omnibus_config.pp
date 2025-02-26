@@ -106,10 +106,11 @@ class gitlab::omnibus_config (
 
   # attributes shared by all config files used by omnibus package
   $config_file_attributes = {
-    ensure => 'present',
-    owner  => $service_user,
-    group  => $service_group,
-    mode   => '0600',
+    ensure    => 'present',
+    owner     => $service_user,
+    group     => $service_group,
+    mode      => '0600',
+    show_diff => false,
   }
 
   if $config_manage {
