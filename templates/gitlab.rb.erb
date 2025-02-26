@@ -25,6 +25,8 @@ def numify(obj)
     obj.map { |item| numify(item) }
   elsif obj.is_a?(Hash)
     sort_hash_by_key(obj.merge(obj) { |_, v| numify(v) })
+  elsif obj.is_a?(Sensitive)
+    obj.unwrap
   else
     obj
   end
